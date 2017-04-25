@@ -45,5 +45,11 @@ public class ReadMoreTest {
         assertEquals("Tom's mouth watered for the apple, but... <Read More>",output);
     }
 
+    @Test
+    public void test6() throws Exception {
+        String input = "Tom's  mouth watered for  the  apple, but he stuck to his work.";
+        String output = uud.readMore(input);
+        assertEquals("Tom's mouth watered for the apple, but... <Read More>",output);
+    }
 
 }
