@@ -14,11 +14,18 @@ public class Main {
         BufferedReader buffer = new BufferedReader(new FileReader(file));
         String line;
         while ((line = buffer.readLine()) != null) {
-            System.out.println(mod(line.trim()));
+            System.out.println(roller(line.trim()));
         }
     }
 
-    public static String rollerCoaster(String input){
+    public static String roller(String input){
 
+        String[] strings = input.split("");
+        char[] chars = new char[strings.length];
+        for(int i=0; i<strings.length;i++){chars[i] = strings[i].charAt(0);}
+
+
+
+        return "";
     }
 }
