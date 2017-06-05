@@ -4,9 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by Justin on 05/31/17.
- */
+
 public class rollerCoasterTest {
 
     private Main uud;
