@@ -1,6 +1,7 @@
 package com.justinfrasier.codeeval.emailValidation;
 
 import java.io.*;
+import java.util.regex.Pattern;
 
 public class Main {
     
@@ -9,35 +10,16 @@ public class Main {
         BufferedReader buffer = new BufferedReader(new FileReader(file));
         String line;
         while ((line = buffer.readLine()) != null) {
-            System.out.println(emailChecker(line.trim()));
+            String test = line.trim();
+            System.out.println(emailChecker(test));
         }
     }
 
     public static String emailChecker(String input) {
-        boolean sign =false, dot=false;
-        char[] chars = stringToCharArray(input);
-        for(char c: chars){
-            if(isAtSign(c)) sign = !sign;
-            if(isADot(c)) dot = !dot;
-        }
-        if(sign && dot) return "true";
-        else return "false";
-    }
+        String test = "^[_A-Za-z0-9-\\.\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$|" +
+                "^\"[_A-Za-z0-9-\\.\\+@]+(\\.[_A-Za-z0-9-]+)*\"@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
-    private static char[] stringToCharArray(String input){
-        String[] strings = input.split("");
-        char[] chars = new char[strings.length];
-        for(int i=0; i<strings.length;i++) chars[i] = strings[i].charAt(0);
-        return chars;
-    }
-
-    private static boolean isAtSign(char check){
-        if(check == '@') return true;
-        else return false;
-    }
-
-    private static boolean isADot(char check){
-        if(check == '.') return true;
-        else return false;
+        Pattern pattern = Pattern.compile(test);
+        return String.valueOf(pattern.matcher(input).matches());
     }
 }

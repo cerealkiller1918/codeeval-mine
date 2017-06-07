@@ -47,4 +47,12 @@ public class emailValidationTest {
 
     }
 
+    @Test
+    public void test5() throws Exception {
+        String input = "good123.bad@com";
+        String output = udd.emailChecker(input);
+        assertEquals("false",output);
+
+    }
+
 }
